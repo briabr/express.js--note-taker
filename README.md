@@ -31,7 +31,4 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 ![](images/11-express-homework-demo-01.png)
 ![](images/11-express-homework-demo-02.png)
 
-## Deployed application link 
-https://briabr.github.io/express.js--note-taker/
-
 
