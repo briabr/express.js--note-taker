@@ -1,10 +1,6 @@
-const router = require("express").Router();
-const path = require('path')
-const store = require('../../db/store')
+const router = require('express').Router();
+const store = require('../db/store');
 
-// router.get('/api/notes', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../db/db.json'));
-//   });
 // GET "/api/notes" responds with all notes from the database
 router.get('/notes', (req, res) => {
   store
@@ -14,6 +10,11 @@ router.get('/notes', (req, res) => {
     })
     .catch((err) => res.status(500).json(err));
 });
-
+router.post('/notes', (req, res) => {
+  store
+    .addNote(req.body)
+    .then((note) => res.json(note))
+    .catch((err) => res.status(500).json(err));
+});
 
 module.exports = router;
