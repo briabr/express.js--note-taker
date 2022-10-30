@@ -2,6 +2,7 @@ const express = require("express");
 const routes = require("./routes")
 const apiRoutes = require("./routes/api")
 const htmlRoutes = require("./routes/htmlRoutes")
+const store = require('./db/store')
 
 const app = express();
 // creating environment variable port
