@@ -1,9 +1,14 @@
+const util = require('util')
+const fs = require('fs')
+const readFileAsync = util.promisify(fs.readFile)
+const writeFileAsync = util.promisify(fs.writeFile)
+
 class Store {
     read() {
       return readFileAsync('db/db.json', 'utf8');
     }
     write(){
-        //change the note to JSON so it can be sotored in the db.json file
+        //change the note to JSON so it can be sotred in the db.json file
         return writeFileAsync ('db/db.json', JSON.stringify(note));
     }
     getNotes(){
@@ -24,4 +29,4 @@ class Store {
     }
 }
 
-module.exports = Store
+module.exports = new Store();

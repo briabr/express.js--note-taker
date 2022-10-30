@@ -2,7 +2,6 @@ const express = require("express");
 const routes = require("./routes")
 const apiRoutes = require("./routes/api")
 const htmlRoutes = require("./routes/htmlRoutes")
-const store = require('./db/store')
 
 const app = express();
 // creating environment variable port
@@ -15,8 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/api', apiRoutes);
 app.use('/', htmlRoutes);
-
-
 
 //routes
 app.listen(PORT, () => console.log(`Listening on ${PORT}`))
