@@ -1,0 +1,15 @@
+// DELETE /api/notes/:id should receive a query parameter containing the id of a note to delete.
+router.delete('/api/notes/:id', (req, res) => {
+    // reading notes form db.json
+    let dbJson = JSON.parse(fs.readFileSync('db/db.json'))
+    // removing note with id
+    let deleteNotes = dbJson.filter(item => item.id !== req.params.id);
+    // Rewriting note to db.json
+    fs.writeFileSync('db/db.json', JSON.stringify(deleteNotes));
+    res.json(deleteNotes);
+    
+  })
+
+  //line 26
+  // creating unique id for each note
+  id: uniqid(),
